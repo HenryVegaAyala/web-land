@@ -1,4 +1,5 @@
 <?php
+use \yii\web\Request;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
@@ -14,17 +15,6 @@ $config = [
     'components' => [
         'assetManager' => [
             'bundles' => false,
-            //'bundles' => [
-            //     'yii\web\JqueryAsset' => [
-            //     'js'=>[]
-            //    ],
-            //    'yii\bootstrap\BootstrapPluginAsset' => [
-            //        'js' => [],
-            //    ],
-            //    'yii\bootstrap\BootstrapAsset' => [
-            //        'css' => [],
-            //    ],
-            //],
             'linkAssets' => false,
             'appendTimestamp' => true,
             'converter' => [
@@ -36,6 +26,7 @@ $config = [
             ],
         ],
         'request' => [
+            'baseUrl' => str_replace('/frontend/web', '', (new Request)->getBaseUrl()),
             'cookieValidationKey' => 'c2asR6ZZmOYm5NgjEp-cyxP6cfN0vVTV',
         ],
         'cache' => [
@@ -63,9 +54,13 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                '/' => 'site/index',
             ],
         ],
     ],
