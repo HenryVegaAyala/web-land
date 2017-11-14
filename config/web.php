@@ -1,5 +1,7 @@
 <?php
+use yii\helpers\Url;
 use \yii\web\Request;
+use himiklab\sitemap\behaviors\SitemapBehavior;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
@@ -7,12 +9,40 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'assetsAutoCompress'],
+    'sourceLanguage' => 'es',
+    'language' => 'es',
+    'timeZone' => 'America/Lima',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
+        'assetsAutoCompress' =>
+            [
+                'class'                         => '\skeeks\yii2\assetsAuto\AssetsAutoCompressComponent',
+                'enabled'                       => true,
+                'readFileTimeout'               => 3,
+                'jsCompress'                    => true,
+                'jsCompressFlaggedComments'     => true,
+                'cssCompress'                   => true,
+                'cssFileCompile'                => true,
+                'cssFileRemouteCompile'         => false,
+                'cssFileCompress'               => true,
+                'cssFileBottom'                 => false,
+                'cssFileBottomLoadOnJs'         => false,
+                'jsFileCompile'                 => true,
+                'jsFileRemouteCompile'          => false,
+                'jsFileCompress'                => true,
+                'jsFileCompressFlaggedComments' => true,
+                'htmlCompress'                  => true,
+                'noIncludeJsFilesOnPjax'        => true,
+                'htmlCompressOptions'           =>
+                    [
+                        'extra' => false,
+                        'no-comments' => true
+                    ],
+            ],
         'assetManager' => [
             'bundles' => false,
             'linkAssets' => false,
@@ -61,7 +91,103 @@ $config = [
             'enableStrictParsing' => true,
             'rules' => [
                 '/' => 'site/index',
+                ['pattern' => 'robots', 'route' => 'robotsTxt/web/index', 'suffix' => '.txt'],
+                ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
             ],
+        ],
+    ],
+    'modules' => [
+        'robotsTxt' => [
+            'class' => 'execut\robotsTxt\Module',
+            'components' => [
+                'generator' => [
+                    'class' => \execut\robotsTxt\Generator::class,
+                    'host' => 'localhost',
+                    'sitemap' => 'sitemap.xml',
+                    'sitemap' => [
+                        'sitemapModule/sitemapController/sitemapAction',
+                    ],
+                    'userAgent' => [
+                        '*' => [
+                            'Disallow' => [
+                                'noIndexedHtmlFile.html',
+                                [
+                                    'notIndexedModule/noIndexedController/noIndexedAction',
+                                    'noIndexedActionParam' => 'noIndexedActionParamValue',
+                                ],
+                            ],
+                            'Allow' => [
+                                //..
+                            ],
+                        ],
+                        'BingBot' => [
+                            'Sitemap' => '/sitemapSpecialForBing.xml',
+                            'Disallow' => [
+                                //..
+                            ],
+                            'Allow' => [
+                                //..
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'sitemap' => [
+            'class' => 'himiklab\sitemap\Sitemap',
+            'models' => [
+                'app\modules\news\models\News',
+                [
+                    'class' => 'app\modules\news\models\News',
+                    'behaviors' => [
+                        'sitemap' => [
+                            'class' => SitemapBehavior::className(),
+                            'scope' => function ($model) {
+                                $model->select(['url', 'lastmod']);
+                                $model->andWhere(['is_deleted' => 0]);
+                            },
+                            'dataClosure' => function ($model) {
+                                return [
+                                    'loc' => Url::to($model->url, true),
+                                    'lastmod' => strtotime($model->lastmod),
+                                    'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
+                                    'priority' => 0.8,
+                                ];
+                            },
+                        ],
+                    ],
+                ],
+            ],
+            'urls' => [
+                [
+                    'loc' => '/news/index',
+                    'changefreq' => \himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+                    'priority' => 0.8,
+                    'news' => [
+                        'publication' => [
+                            'name' => 'Example Blog',
+                            'language' => 'en',
+                        ],
+                        'access' => 'Subscription',
+                        'genres' => 'Blog, UserGenerated',
+                        'publication_date' => 'YYYY-MM-DDThh:mm:ssTZD',
+                        'title' => 'Example Title',
+                        'keywords' => 'example, keywords, comma-separated',
+                        'stock_tickers' => 'NASDAQ:A, NASDAQ:B',
+                    ],
+                    'images' => [
+                        [
+                            'loc' => 'http://example.com/image.jpg',
+                            'caption' => 'This is an example of a caption of an image',
+                            'geo_location' => 'City, State',
+                            'title' => 'Example image',
+                            'license' => 'http://example.com/license',
+                        ],
+                    ],
+                ],
+            ],
+            'enableGzip' => true,
+            'cacheExpire' => 1,
         ],
     ],
     'params' => $params,

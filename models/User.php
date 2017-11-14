@@ -2,6 +2,9 @@
 
 namespace app\models;
 
+use himiklab\sitemap\behaviors\SitemapBehavior;
+use yii\helpers\Url;
+
 class User extends \yii\base\Object implements \yii\web\IdentityInterface
 {
     public $id;
@@ -27,6 +30,26 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
         ],
     ];
 
+    public function behaviors()
+    {
+        return [
+            'sitemap' => [
+                'class' => SitemapBehavior::className(),
+                'scope' => function ($model) {
+                    $model->select(['url', 'lastmod']);
+                    $model->andWhere(['is_deleted' => 0]);
+                },
+                'dataClosure' => function ($model) {
+                    return [
+                        'loc' => Url::to($model->url, true),
+                        'lastmod' => strtotime($model->lastmod),
+                        'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
+                        'priority' => 0.8
+                    ];
+                }
+            ],
+        ];
+    }
 
     /**
      * @inheritdoc
