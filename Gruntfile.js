@@ -43,6 +43,16 @@ module.exports = function (grunt) {
         ]
       }
     },
+    minified: {
+      files: {
+        src: ['web/js/all.js'],
+        dest: 'web/js/'
+      },
+      options: {
+        sourcemap: true,
+        allinone: false
+      }
+    },
     watch: {
       js: {
         files: ['assets/js/**/*.js', 'assets/js/all.json'],
@@ -74,9 +84,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch'),
   grunt.loadNpmTasks('grunt-contrib-less'),
   grunt.loadNpmTasks('grunt-contrib-copy'),
-  grunt.loadNpmTasks('grunt-contrib-htmlmin'),
-  grunt.loadNpmTasks('grunt-contrib-cssmin'),
+  grunt.loadNpmTasks('grunt-minified')
 
-  grunt.registerTask('build', ['less', 'concat_sourcemap', 'copy']),
+  grunt.registerTask('build', ['less', 'concat_sourcemap', 'copy', 'minified']),
   grunt.registerTask('default', ['watch'])
 }
