@@ -11,6 +11,5 @@
   "web/lib/counterup/counterup.min.js",
   "web/lib/superfish/hoverIntent.js",
   "web/lib/superfish/superfish.min.js",
-  "web/js/main.js",
-  "https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"
+  "web/js/main.js"
 ]
