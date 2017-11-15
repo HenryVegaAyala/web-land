@@ -3,5 +3,14 @@
   "vendor/bower-asset/bootstrap/dist/js/bootstrap.min.js",
   "vendor/yiisoft/yii2/assets/yii.js",
   "vendor/yiisoft/yii2/assets/yii.validation.js",
-  "vendor/yiisoft/yii2/assets/yii.activeForm.js"
+  "vendor/yiisoft/yii2/assets/yii.activeForm.js",
+  "web/lib/jquery/jquery-migrate.min.js",
+  "web/lib/easing/easing.min.js",
+  "web/lib/wow/wow.min.js",
+  "web/lib/waypoints/waypoints.min.js",
+  "web/lib/counterup/counterup.min.js",
+  "web/lib/superfish/hoverIntent.js",
+  "web/lib/superfish/superfish.min.js",
+  "web/js/main.js",
+  "https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"
 ]

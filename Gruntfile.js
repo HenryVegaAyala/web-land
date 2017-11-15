@@ -30,17 +30,15 @@ module.exports = function (grunt) {
         }
       }
     },
-    copy: {
-      main: {
-        files: [
-          {
-            expand: true,
-            flatten: true,
-            src: ['vendor/bower-asset/bootstrap/fonts/*'],
-            dest: 'web/fonts/',
-            filter: 'isFile'
-          }
-        ]
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'web/css/',
+          src: ['style.css'],
+          dest: 'web/css/',
+          ext: '.min.css'
+        }]
       }
     },
     minified: {
@@ -67,15 +65,6 @@ module.exports = function (grunt) {
         options: {
           livereload: true
         }
-      },
-      fonts: {
-        files: [
-          'vendor/bower/bootstrap/fonts/*'
-        ],
-        tasks: ['copy'],
-        options: {
-          livereload: true
-        }
       }
     }
   }),
@@ -83,9 +72,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-concat-sourcemap'),
   grunt.loadNpmTasks('grunt-contrib-watch'),
   grunt.loadNpmTasks('grunt-contrib-less'),
-  grunt.loadNpmTasks('grunt-contrib-copy'),
-  grunt.loadNpmTasks('grunt-minified')
+  grunt.loadNpmTasks('grunt-minified'),
+  grunt.loadNpmTasks('grunt-contrib-cssmin'),
 
-  grunt.registerTask('build', ['less', 'concat_sourcemap', 'copy', 'minified']),
+  grunt.registerTask('build', ['less', 'concat_sourcemap', 'minified', 'cssmin']),
   grunt.registerTask('default', ['watch'])
 }
