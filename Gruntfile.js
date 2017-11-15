@@ -66,15 +66,26 @@ module.exports = function (grunt) {
           livereload: true
         }
       }
+    },
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'web/img/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'web/img/'
+        }]
+      }
     }
-  }),
+  })
 
   grunt.loadNpmTasks('grunt-concat-sourcemap'),
   grunt.loadNpmTasks('grunt-contrib-watch'),
   grunt.loadNpmTasks('grunt-contrib-less'),
   grunt.loadNpmTasks('grunt-minified'),
   grunt.loadNpmTasks('grunt-contrib-cssmin'),
+  grunt.loadNpmTasks('grunt-contrib-imagemin'),
 
-  grunt.registerTask('build', ['less', 'concat_sourcemap', 'minified', 'cssmin']),
+  grunt.registerTask('build', ['less', 'concat_sourcemap', 'minified', 'cssmin', 'imagemin']),
   grunt.registerTask('default', ['watch'])
 }
