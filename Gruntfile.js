@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     concat_css: {
       all: {
         src: [
+          'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700',
           'web/lib/bootstrap/css/bootstrap.min.css',
           'web/lib/font-awesome/css/font-awesome.min.css',
           'web/lib/animate/animate.min.css',
@@ -21,26 +22,6 @@ module.exports = function (grunt) {
           dest: 'web/css/',
           ext: '.min.css'
         }]
-      }
-    },
-    less: {
-      dev: {
-        options: {
-          compress: false,
-          sourceMap: true,
-          outputSourceFiles: true
-        },
-        files: {
-          'web/css/all.css': 'assets/less/all.less'
-        }
-      },
-      prod: {
-        options: {
-          compress: true
-        },
-        files: {
-          'web/css/all.min.css': 'assets/less/all.less'
-        }
       }
     },
     concat_sourcemap: {
@@ -91,14 +72,13 @@ module.exports = function (grunt) {
     }
   }),
 
-  grunt.loadNpmTasks('grunt-concat-sourcemap'),
-  grunt.loadNpmTasks('grunt-contrib-watch'),
-  grunt.loadNpmTasks('grunt-contrib-less'),
-  grunt.loadNpmTasks('grunt-minified'),
-  grunt.loadNpmTasks('grunt-contrib-cssmin'),
-  grunt.loadNpmTasks('grunt-contrib-imagemin'),
   grunt.loadNpmTasks('grunt-concat-css'),
+  grunt.loadNpmTasks('grunt-contrib-cssmin'),
+  grunt.loadNpmTasks('grunt-concat-sourcemap'),
+  grunt.loadNpmTasks('grunt-minified'),
+  grunt.loadNpmTasks('grunt-contrib-imagemin'),
+  grunt.loadNpmTasks('grunt-contrib-watch'),
 
-  grunt.registerTask('build', ['concat_css', 'cssmin', 'less', 'concat_sourcemap', 'minified', 'imagemin']),
+  grunt.registerTask('build', ['concat_css', 'cssmin', 'concat_sourcemap', 'minified', 'imagemin']),
   grunt.registerTask('default', ['watch'])
 }
