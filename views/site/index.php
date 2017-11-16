@@ -237,7 +237,7 @@ Header
             <div class="row" id="portfolio-wrapper">
                 <div class="col-lg-3 col-md-6 portfolio-item filter-app">
                     <a href="">
-                        <img src="img/portfolio/app1.jpg" alt="">
+                        <img src="img/portfolio/app1.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>App 1</h4>
                             <span>Alored dono par</span>
@@ -247,7 +247,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
                     <a href="">
-                        <img src="img/portfolio/web2.jpg" alt="">
+                        <img src="img/portfolio/web2.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Web 2</h4>
                             <span>Alored dono par</span>
@@ -257,7 +257,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-app">
                     <a href="">
-                        <img src="img/portfolio/app3.jpg" alt="">
+                        <img src="img/portfolio/app3.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>App 3</h4>
                             <span>Alored dono par</span>
@@ -267,7 +267,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-card">
                     <a href="">
-                        <img src="img/portfolio/card1.jpg" alt="">
+                        <img src="img/portfolio/card1.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Card 1</h4>
                             <span>Alored dono par</span>
@@ -277,7 +277,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-card">
                     <a href="">
-                        <img src="img/portfolio/card2.jpg" alt="">
+                        <img src="img/portfolio/card2.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Card 2</h4>
                             <span>Alored dono par</span>
@@ -287,7 +287,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
                     <a href="">
-                        <img src="img/portfolio/web3.jpg" alt="">
+                        <img src="img/portfolio/web3.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Web 3</h4>
                             <span>Alored dono par</span>
@@ -297,7 +297,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-card">
                     <a href="">
-                        <img src="img/portfolio/card3.jpg" alt="">
+                        <img src="img/portfolio/card3.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Card 3</h4>
                             <span>Alored dono par</span>
@@ -307,7 +307,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-app">
                     <a href="">
-                        <img src="img/portfolio/app2.jpg" alt="">
+                        <img src="img/portfolio/app2.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>App 2</h4>
                             <span>Alored dono par</span>
@@ -317,7 +317,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
                     <a href="">
-                        <img src="img/portfolio/logo1.jpg" alt="">
+                        <img src="img/portfolio/logo1.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Logo 1</h4>
                             <span>Alored dono par</span>
@@ -327,7 +327,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
                     <a href="">
-                        <img src="img/portfolio/logo3.jpg" alt="">
+                        <img src="img/portfolio/logo3.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Logo 3</h4>
                             <span>Alored dono par</span>
@@ -337,7 +337,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
                     <a href="">
-                        <img src="img/portfolio/web1.jpg" alt="">
+                        <img src="img/portfolio/web1.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Web 1</h4>
                             <span>Alored dono par</span>
@@ -347,7 +347,7 @@ Header
 
                 <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
                     <a href="">
-                        <img src="img/portfolio/logo2.jpg" alt="">
+                        <img src="img/portfolio/logo2.jpg?v=1510804619" alt="">
                         <div class="details">
                             <h4>Logo 2</h4>
                             <span>Alored dono par</span>
@@ -372,7 +372,7 @@ Header
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
-                        <div class="pic"><img src="img/team-1.jpg" alt=""></div>
+                        <div class="pic"><img src="img/team-1.jpg?v=1510804619" alt=""></div>
                         <h4>Walter White</h4>
                         <span>Chief Executive Officer</span>
                         <div class="social">
@@ -386,7 +386,7 @@ Header
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
-                        <div class="pic"><img src="img/team-2.jpg" alt=""></div>
+                        <div class="pic"><img src="img/team-2.jpg?v=1510804619" alt=""></div>
                         <h4>Sarah Jhinson</h4>
                         <span>Product Manager</span>
                         <div class="social">
@@ -400,7 +400,7 @@ Header
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
-                        <div class="pic"><img src="img/team-3.jpg" alt=""></div>
+                        <div class="pic"><img src="img/team-3.jpg?v=1510804619" alt=""></div>
                         <h4>William Anderson</h4>
                         <span>CTO</span>
                         <div class="social">
@@ -414,7 +414,7 @@ Header
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
-                        <div class="pic"><img src="img/team-4.jpg" alt=""></div>
+                        <div class="pic"><img src="img/team-4.jpg?v=1510804619" alt=""></div>
                         <h4>Amanda Jepson</h4>
                         <span>Accountant</span>
                         <div class="social">
