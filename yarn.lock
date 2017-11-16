@@ -1924,6 +1924,10 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
+grunt-concat-css@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/grunt-concat-css/-/grunt-concat-css-0.3.2.tgz#804028a1e256be2aeb42c2966b5fef9912dcf904"
+
 grunt-concat-sourcemap@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/grunt-concat-sourcemap/-/grunt-concat-sourcemap-0.4.3.tgz#9813e84e87a9ff34ddfb071f1fe25d69d237de2e"
