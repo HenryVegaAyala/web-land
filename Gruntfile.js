@@ -22,6 +22,15 @@ module.exports = function (grunt) {
           dest: 'web/css/',
           ext: '.min.css'
         }]
+      },
+      style: {
+        files: [{
+          expand: true,
+          cwd: 'web/css/',
+          src: ['style.css'],
+          dest: 'web/css/',
+          ext: '.min.css'
+        }]
       }
     },
     concat_sourcemap: {
