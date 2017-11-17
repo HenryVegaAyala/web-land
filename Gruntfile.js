@@ -13,8 +13,16 @@ module.exports = function (grunt) {
         dest: "web/css/eqatu.css"
       }
     },
-    cssmin: {
+    purifycss: {
+      options: {},
       target: {
+        src: ['views/layouts/*.php', 'views/site/*.php', 'web/js/all.js'],
+        css: ['web/css/eqatu.css'],
+        dest: 'web/css/eqatu.css'
+      }
+    },
+    cssmin: {
+      eqatu: {
         files: [{
           expand: true,
           cwd: 'web/css/',
@@ -83,11 +91,12 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-concat-css'),
   grunt.loadNpmTasks('grunt-contrib-cssmin'),
+  grunt.loadNpmTasks('grunt-purifycss'),
   grunt.loadNpmTasks('grunt-concat-sourcemap'),
   grunt.loadNpmTasks('grunt-minified'),
   grunt.loadNpmTasks('grunt-contrib-imagemin'),
   grunt.loadNpmTasks('grunt-contrib-watch'),
 
-  grunt.registerTask('build', ['concat_css', 'cssmin', 'concat_sourcemap', 'minified', 'imagemin']),
+  grunt.registerTask('build', ['concat_css', 'purifycss', 'cssmin', 'concat_sourcemap', 'minified', 'imagemin']),
   grunt.registerTask('default', ['watch'])
 }
